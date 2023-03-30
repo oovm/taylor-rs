@@ -1,0 +1,28 @@
+[package]
+name = "pi-digits"
+version = "0.0.0"
+authors = ["Aster <galaster@foxmail.com>"]
+description = "Search digit in pi"
+repository = "https://github.com/oovm/pi-searcher"
+documentation = "https://docs.rs/pi-search"
+license = "MPL-2.0"
+readme = "Readme.md"
+edition = "2021"
+
+
+[dependencies]
+dashu = "0.3.1"
+num = "0.4.0"
+
+[dev-dependencies]
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[package.metadata.wee]
+t = "cargo test"
+p = "cargo publish --allow-dirty"
+base10 = "cargo run --release --example base10"
+base256 = "cargo test --release --test main dump_base256 -- --ignored"
+map10 = "cargo run --release --example computed"
+s = "cargo run --release --example special"
