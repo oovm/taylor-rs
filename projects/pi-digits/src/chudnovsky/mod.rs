@@ -1,24 +1,20 @@
 // http://www.craig-wood.com/nick/articles/pi-chudnovsky/
 
 use std::time::Instant;
-use std::f64::consts::PI;
 use std::ops::Mul;
 use dashu::base::SquareRoot;
 use dashu::integer::IBig;
 use num::Zero;
-fn pi_chudnovsky_bs(digits: i32) -> IBig {
-    /*
-    计算int(pi * 10**digits)
-    这是使用Chudnovsky的二进制分裂级数完成的
-    */
-    let c = IBig::from(640320);
-    let c3_24 = IBig::from(c.pow(3) / 24);
+
+fn pi_chudnovsky_bs(digits: u32) -> IBig {
+    // c3_24 = 640320^3 / 24
+    let c3_24 = IBig::from(10939058860032000_u128);
 
     // 计算多少项
-    let digits_per_term = (c3_24.to_f64().value_ref() / 6.0 / 2.0 / 6.0).log10();
-    let n = IBig::from((digits as f64 / digits_per_term + 1.0) as i32);
+    // d = log10(c3_24 / 6 / 2 / 6)
+    let n = IBig::from(digits / 151931373056000_u128.ilog10() + 1);
     // 计算P(0,N)和Q(0,N)
-    let (p, q, t) = with_pqt(&IBig::zero(), &n,& c3_24);
+    let (p, q, t) = with_pqt(&IBig::zero(), &n, &c3_24);
     let one_squared = IBig::from(10).pow(2 * digits as usize);
     let sqrt_c: IBig = one_squared.mul(10005);
     (q * 426880 * sqrt_c.sqrt()) / t
@@ -83,7 +79,7 @@ fn main() {
     println!("{}", pi);
     println!("time: {:?}", start.elapsed());
     for (log10_digits, check_digit) in check_digits {
-        let digits = 10_i32.pow(log10_digits as u32);
+        let digits = 10_i32.pow(log10_digits as u32) as u32;
         let start = Instant::now();
         let pi = pi_chudnovsky_bs(digits);
         println!("chudnovsky_gmpy_mpz_bs: digits {}, time {:?}", digits, start.elapsed());
