@@ -7,6 +7,8 @@ use dashu::base::SquareRoot;
 use dashu::integer::IBig;
 use num::Zero;
 
+mod chudnovsky;
+
 struct PQT
 {
     p: IBig,
