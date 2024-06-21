@@ -11,13 +11,11 @@ edition = "2021"
 
 
 [dependencies]
-dashu = "0.3.1"
-num = "0.4.0"
+#dashu = "0.3.1"
+#num = "0.4.0"
+rand = { version = "0.8.5", features = ["small_rng"] }
 
 [dev-dependencies]
-
-[lib]
-crate-type = ["cdylib", "rlib"]
 
 [package.metadata.wee]
 t = "cargo test"
