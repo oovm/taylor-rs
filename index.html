@@ -1,22 +1,36 @@
-<!DOCTYPE html><html lang="en"><head>
-    <meta charset="utf-8">
-    <script type="module">import init from '/pi-searcher/index-f4d9ad97e59c8e1f.js';init('/pi-searcher/index-f4d9ad97e59c8e1f_bg.wasm');</script>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8"/>
+    
+<script type="module" nonce="/cjvYw1qk6B2y/aH7hAAvA==">
+import init, * as bindings from '/pi-searcher/demo-556a45a85c4b7c60.js';
+const wasm = await init('/pi-searcher/demo-556a45a85c4b7c60_bg.wasm');
+
+
+window.wasmBindings = bindings;
+
+
+dispatchEvent(new CustomEvent("TrunkApplicationStarted", {detail: {wasm}}));
+
+</script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="https://avatars.githubusercontent.com/u/44205449">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2/dist/tailwind.min.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daisyui@1.24.3/dist/full.css">
-    <link rel="stylesheet" href="/pi-searcher/main-fff5a7c03c97b09.css">
+    <link rel="icon" type="image/png" href="https://avatars.githubusercontent.com/u/44205449"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2/dist/tailwind.min.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daisyui@1.24.3/dist/full.css"/>
+    <link rel="stylesheet" href="/pi-searcher/main-a55fa026deb53d89.css" integrity="sha384&#x2D;TUBRii0q22&#x2F;7FogrJbEwsvB6&#x2B;Kk8vWdxIGFyLQYdbvgCmokvYV6KaI4iaMAYjVQs"/>
     <title>Pi Searcher</title>
 
-<link rel="preload" href="/pi-searcher/index-f4d9ad97e59c8e1f_bg.wasm" as="fetch" type="application/wasm" crossorigin="">
-<link rel="modulepreload" href="/pi-searcher/index-f4d9ad97e59c8e1f.js"></head>
+<link rel="modulepreload" href="/pi-searcher/demo-556a45a85c4b7c60.js" crossorigin=anonymous integrity="sha384-p9m1F6PHWeFtILGqKYYRdAfx2tpbh34+oFeE+Ki2qQjpGYpLe3NzF6kcAe21VL9X">
+<link rel="modulepreload" href="/pi-searcher/snippets/dioxus-interpreter-js-459fb15b86d869f7/src/interpreter.js" crossorigin=anonymous integrity="sha384-8Btr6zAdtTsnx5sta0F7Ue+sE29DdbAaAJlMVQeJACM68fipfwGSV6n72j3YV8kH">
+<link rel="preload" href="/pi-searcher/demo-556a45a85c4b7c60_bg.wasm" crossorigin=anonymous integrity="sha384-glfCP6R7dN2m2hnFSC5FQNg/663kgdvAQik/CxfAoPgFAbtDjjwqTKKkuVgRFo/W" as="fetch" type="application/wasm"></head>
 
 
 <body>
 <div id="main">
 
 </div>
+</body>
 
-
-
-</body></html>
+</html>
